@@ -68,32 +68,32 @@ def test_submit_filled_form__():
     '''
     # or simply (without variable)
     DatePicker(browser.element('#dateOfBirthInput')).set_date(
-        datetime.date(1997, 7, 1)
-    ).assert_value(datetime.date(1997, 7, 1))
+        datetime.date(1990, 5, 4)
+    ).assert_value(datetime.date(1990, 5, 4))
 
     # not fluent version:
     birthday = DatePicker(browser.element('#dateOfBirthInput'))
-    birthday.set_date(datetime.date(1997, 7, 29))
-    birthday.assert_value(datetime.date(1997, 7, 29))
+    birthday.set_date(datetime.date(1990, 5, 4))
+    birthday.assert_value(datetime.date(1990, 5, 4))
 
     # actual version that Python does under the hood:
     birthday = object.__new__(DatePicker)  # noqa
     DatePicker.__init__(birthday, browser.element('#dateOfBirthInput'))
-    DatePicker.set_date(birthday, datetime.date(1997, 7, 29))
-    DatePicker.assert_value(birthday, datetime.date(1997, 7, 29))
+    DatePicker.set_date(birthday, datetime.date(1990, 5, 4))
+    DatePicker.assert_value(birthday, datetime.date(1990, 5, 4))
 
     # just pure modules with «pure» procedures
     birthday = browser.element('#dateOfBirthInput')
-    datepicker.set_date(birthday, datetime.date(1997, 7, 29))
-    datepicker.assert_value(birthday,  datetime.date(1997, 7, 29))
+    datepicker.set_date(birthday, datetime.date(1990, 5, 4))
+    datepicker.assert_value(birthday,  datetime.date(1990, 5, 4))
 
     # the following version would be too much,
     # because we start to miss test data from places where it should be used
     # to emphasize test logic
-    DatePicker(browser.element('#dateOfBirthInput'), datetime.date(1997, 7, 1)).set_date().assert_value()
+    DatePicker(browser.element('#dateOfBirthInput'), datetime.date(1990, 5, 4)).set_date().assert_value()
     '''
 
     # graduation = DatePicker(browser.element('#dateOfGraduation'))
-    # graduation.set_date(datetime.date(1997, 7, 29))
+    # graduation.set_date(datetime.date(2007, 7, 29))
 
     ...  # ending of the test
